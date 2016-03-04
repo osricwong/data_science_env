@@ -21,11 +21,17 @@ RUN pyenv global 3.5.0
 
 
 RUN apt-get install -y --no-install-recommends ubuntu-desktop
-RUN apt-get install -y vnc4server
+RUN apt-get install -y tightvncserver
 
 ADD xstartup /root/.vnc/xstartup
 
-CMD vncserver :1
+RUN mkdir -p /root/.vnc
+RUN echo 123456 | vncpasswd -f > /root/.vnc/passwd
+RUN chmod 600 /root/.vnc/passwd
+
+ENV USER root
+
+CMD vncserver :1 && tail -f /root/.vnc/*.log
 
 EXPOSE 22
 EXPOSE 5901
