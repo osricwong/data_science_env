@@ -20,18 +20,17 @@ RUN pyenv rehash
 RUN pyenv global 3.5.0
 
 
-RUN apt-get install -y --no-install-recommends ubuntu-desktop
-RUN apt-get install -y tightvncserver
-
-ADD xstartup /root/.vnc/xstartup
-
-RUN mkdir -p /root/.vnc
-RUN echo 123456 | vncpasswd -f > /root/.vnc/passwd
-RUN chmod 600 /root/.vnc/passwd
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+  firefox \
+  lxde-core \
+  lxterminal \
+  tightvncserver
 
 ENV USER root
+RUN echo 123456 > password.txt
+RUN cat password.txt password.txt | vncpasswd && rm password.txt
 
-CMD vncserver :1 && tail -f /root/.vnc/*.log
+CMD vncserver -geometry 1280x800 :1 && tail -F /root/.vnc/*.log
 
 EXPOSE 22
 EXPOSE 5901
