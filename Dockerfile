@@ -30,7 +30,7 @@ ENV USER root
 RUN echo 123456 > password.txt
 RUN cat password.txt password.txt | vncpasswd && rm password.txt
 
-CMD vncserver -geometry 1280x800 :1 && tail -F /root/.vnc/*.log
+CMD vncserver -geometry 1280x800 -localhost :1 && tail -F /root/.vnc/*.log
 
 EXPOSE 22
 EXPOSE 5901
