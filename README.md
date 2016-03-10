@@ -2,7 +2,7 @@
 
 1. Install docker through [this link](https://docs.docker.com/engine/installation/)
 2. In your docker-enabled terminal, run `docker run -t -i --rm -p 5901:5901 kwong999999/data-science-env` to start a VM running the OS image, note that `--rm` means the instance is removed after you terminate this command, your changes to filesystem in the environment is not persisted
-3. Use any vnc client (eg. Mac's Finder, [VNC Viewer](https://www.realvnc.com/download/viewer/), ...) to connect to `192.168.99.100:5901`, and you're ready for action
+3. Use any vnc client (eg. Mac's Finder, [VNC Viewer](https://www.realvnc.com/download/viewer/), ...) to connect to `192.168.99.100:5901`, default pw: `123456`, and you're ready for action
 
 ## Troubleshooting
 
