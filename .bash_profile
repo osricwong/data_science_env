@@ -1,3 +1,1 @@
-export PATH="/root/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+export PATH="/root/anaconda2/bin:$PATH"
